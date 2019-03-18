@@ -7,9 +7,10 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Put all API endpoints under '/api'
-app.get('/', (req, res) => {
+app.get('/hello', (req, res) => {
   console.log('Something!');
-  res.send("Hello@")
+  obj = {thing: "hello"}
+  res.send(obj)
 });
 
 // The "catchall" handler: for any request that doesn't
