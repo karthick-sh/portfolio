@@ -24,31 +24,7 @@ class App extends Component {
   render() {
     console.log(this.state.words)
     //WORKS!!
-    var width = window.innerWidth
-                || document.documentElement.clientWidth
-                || document.body.clientWidth;
-
-    var height = window.innerHeight
-                || document.documentElement.clientHeight
-                || document.body.clientHeight;
-
-
-    console.log(width + "x" + height)
     return (
-      <div className="fake-border">
-        <div className="container">
-
-          <div className="content">
-            <div className="name-container">
-              <h1 className="name">Karthick</h1>
-              <h1 className="name">Shankar</h1>
-            </div>
-          </div>
-          <Snake/>
-        </div>
-      </div>
-      )
-    /*return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -65,7 +41,7 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );*/
+    );
   }
 }
 
