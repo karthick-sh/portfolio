@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import SceneSubject from './SceneSubject';
-import * as Sky from '../threeSky';
-//import GeneralLights from './GeneralLights';
+import * as Sky from './threeSky';
 
 export default canvas => {
 

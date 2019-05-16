@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import threeEntryPoint from "./threejs/threeEntryPoint"
-import "./header.css"
+import "./TerrainBackground.css"
 
-export default class Header extends Component {
+class TerrainBackground extends Component {
     
     componentDidMount() {
         threeEntryPoint(this.threeRootElement);
@@ -11,7 +11,9 @@ export default class Header extends Component {
 
     render () {
         return (
-            <div className="header-header" ref={element => this.threeRootElement = element} />
+            <div className="terrain-background" ref={element => this.threeRootElement = element} />
         );
     }
 }
+
+export default TerrainBackground;

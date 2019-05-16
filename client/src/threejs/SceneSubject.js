@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-//import alphaTexture from '../textures/stripes_gradient.jpg';
 import palleteImage from '../textures/pallete_bw.png';
 
 export default scene => {    
@@ -35,14 +34,6 @@ export default scene => {
       terrain.material.needsUpdate = true;
     });
 
-    // function deformGeometry(geometry) {
-    //     for (let i=0; i<geometry.vertices.length; i+=2) {
-    //         const scalar = 1 + Math.random()*0.8;
-    //         geometry.vertices[i].multiplyScalar(scalar)
-    //     }
-
-    //     return geometry;
-    // }
 
     function update() {
         // damping mouse for smoother interaction
@@ -54,7 +45,6 @@ export default scene => {
         terrain.material.uniforms.time.value = time;
         terrain.material.uniforms.distortCenter.value = Math.sin(time) * 0.1;
         terrain.material.uniforms.maxHeight.value = map(scene.mouse.yDamped, 0, scene.height, 20, 5);
-        //console.log(map(scene.mouse.yDamped, 0, scene.height, 20, 5));
     }   
 
     function lerp (start, end, amt){
