@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
-import TerrainBackground from './TerrainBackground'
-//import Title from './Title'
+
 import * as serviceWorker from './serviceWorker';
+
+//Containers
+import HomePage from './HomePage'
+import AboutPage from './AboutPage'
 
 
 ReactDOM.render(
 	<div className='container'>
-		<TerrainBackground />
+		<HomePage />
+		<AboutPage />
 	</div>
 , document.getElementById('root'));
 

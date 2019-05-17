@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 import threeEntryPoint from "./threejs/threeEntryPoint"
-import "./TerrainBackground.css"
 import Title from './Title'
 
-class TerrainBackground extends Component {
+class HomePage extends Component {
     
     componentDidMount() {
         threeEntryPoint(this.threeRootElement);
@@ -21,4 +20,4 @@ class TerrainBackground extends Component {
     }
 }
 
-export default TerrainBackground;
+export default HomePage;
