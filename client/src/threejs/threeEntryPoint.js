@@ -8,8 +8,9 @@ export default container => {
     render();
 
     function createCanvas(document, container) {
-        const canvas = document.createElement('canvas');     
-        container.appendChild(canvas);
+        const canvas = document.createElement('canvas');  
+        canvas.setAttribute("id", "canvas");
+        container.insertBefore(canvas, container.firstChild);
         return canvas;
     }
 
