@@ -58,13 +58,19 @@ canvas {
   flex-wrap: wrap;
 }
 
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+
 .title-word {
   font-family: "Roboto";
   font-weight: 100;
   margin: 0;
   font-size: 120px;
+  position: absolute;
   color: black;
-  /*text-shadow: 0.06em 0.0em #940f08; LOOKS COOL NEED TO EXPERIMENT*/ 
+  z-index: 10;
+  /*margin-left: 150px;*/
+  /*color: black;*/
+  /*text-shadow: 0.06em 0.0em #940f08; LOOKS COOL NEED TO EXPERIMENT*/   
 }
 
 .title-box {
@@ -73,9 +79,11 @@ canvas {
   margin-bottom: 30px;
   margin-left: 150px;
   height: 158px;
-  background-color: rgba(255, 255, 255, 0.6);
-  /*mix-blend-mode: exclusion;*/
-  z-index: 1
+  /*background-color: rgba(255, 255, 255, 0.6);*/
+
+  /*background-image: linear-gradient(to bottom, rgba(150,150,150,0.6), rgba(200,200,200,0.6));
+  mix-blend-mode: difference;
+  z-index: 1*/
 }
 
 .designation-box{
@@ -83,8 +91,19 @@ canvas {
   height: 30px;
   padding-top: 7px;
   margin-left: 150px;
-  background-color: rgba(255, 255, 255, 0.8);
+  /*background-color: rgba(255, 255, 255, 0.6);*/
 
+  /*background-image: linear-gradient(to bottom, rgba(150,150,150,0.6), rgba(200,200,200,0.6));
+  mix-blend-mode: difference;
+  z-index: 1*/
+
+}
+
+.title-box, .designation-box {
+  background: rgba(207, 222, 243, 0.6);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* mix-blend-mode: difference;*/
 }
 
 h1 {
