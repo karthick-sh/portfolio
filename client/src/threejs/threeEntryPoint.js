@@ -16,7 +16,8 @@ export default container => {
 
     function bindEventListeners() {
         window.onresize = resizeCanvas;
-        window.addEventListener("mousemove", onInputMove) //Also consider touch
+        window.addEventListener("mousemove", onInputMove); //Also consider touch
+        window.addEventListener("wheel", onScroll);
         //window.onmousemove = mouseMove;
         resizeCanvas();	
     }
@@ -33,7 +34,6 @@ export default container => {
 
     function onInputMove(e){
         e.preventDefault();
-        
         var x, y
         if(e.type === "mousemove"){
           x = e.clientX;
@@ -51,5 +51,10 @@ export default container => {
     function render(time) {
         requestAnimationFrame(render);
         sceneManager.update();
+    }
+
+    function onScroll(e){
+        console.log("SCREEN Y: ", e.screenY);
+        console.log("PAGE Y: ", e.pageY);
     }
 }

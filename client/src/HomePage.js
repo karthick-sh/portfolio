@@ -6,6 +6,7 @@ import Title from './Title'
 class HomePage extends Component {
     
     componentDidMount() {
+        //console.log("THE ROOT ELEMENT IS: ", this.threeRootElement);
         threeEntryPoint(this.threeRootElement);
     }
 
