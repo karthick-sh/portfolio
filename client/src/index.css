@@ -1,3 +1,5 @@
+@import "./css/title.css";
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -23,10 +25,12 @@ html, body, #root{
 .container {
   width: 100%;
   height: 100%;
-  position: relative;
-  /*filter: invert(100%);*/
+  /* filter: invert(100%); */
 }
 
+.home-page {
+  height: 100%;
+}
 .terrain-background {
   width: 100%;
   height: 100%;
@@ -34,6 +38,7 @@ html, body, #root{
   padding: 0;
   border: 0;
   position: absolute;
+  z-index: -1000;
 }
 
 canvas {
@@ -42,7 +47,6 @@ canvas {
 }
 
 .content-container {
-  position: absolute;
   display: flex;
   align-items: center;
   margin: 0;
@@ -61,43 +65,37 @@ canvas {
 
 @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
 
-.title-word {
-  font-family: "Roboto";
-  font-weight: 100;
-  margin: 0;
-  font-size: 120px;
-  position: absolute;
-  color: black;
-  z-index: 10;
-  /*margin-left: 150px;*/
-  /*color: black;*/
-  /*text-shadow: 0.06em 0.0em #940f08; LOOKS COOL NEED TO EXPERIMENT*/   
+
+.red-shadow {
+  text-shadow: 0.08em 0.0em #940f08; /*LOOKS COOL NEED TO EXPERIMENT  */ 
 }
 
-.title-box {
-  width: 450px;
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+.title-word {
   padding: 0;
   margin-bottom: 30px;
   margin-left: 150px;
   height: 158px;
-  /*background-color: rgba(255, 255, 255, 0.6);*/
-
-  /*background-image: linear-gradient(to bottom, rgba(150,150,150,0.6), rgba(200,200,200,0.6));
-  mix-blend-mode: difference;
-  z-index: 1*/
+  font-family: "PT Sans";
+  font-weight: 500;
+  font-size: 120px;
+  /* position: absolute; */
+  color: #BCBCBC;
+  z-index: 10;
+  text-shadow: 0.06em 0.0em #940f08; /*LOOKS COOL NEED TO EXPERIMENT  */ 
 }
 
 .designation-box{
-  width: 450px;
+  /* width: 450px; */
+  width: 30%;
   height: 30px;
   padding-top: 7px;
   margin-left: 150px;
-  /*background-color: rgba(255, 255, 255, 0.6);*/
-
-  /*background-image: linear-gradient(to bottom, rgba(150,150,150,0.6), rgba(200,200,200,0.6));
-  mix-blend-mode: difference;
-  z-index: 1*/
-
+  display: flex;
 }
 
 .title-box, .designation-box {
@@ -105,6 +103,7 @@ canvas {
   background: -webkit-linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
  /* mix-blend-mode: difference;*/
+ border-radius: 5px;
 }
 
 h1 {
@@ -131,6 +130,108 @@ h2 {
 
 .about-container {
   width: 100%;
-  height: 100%;
-  background-color: red;
+  min-height: 100%;
+  background-color: #222222;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.section-title-word {
+  font-family: "Roboto";
+  font-weight: 500;
+  margin: 0;
+  font-size: 53px;
+  color: black;
+}
+
+.section-title-box {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  padding: 0;
+  background: rgba(207, 222, 243, 0.6);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(207, 222, 243, 0.6), rgba(224, 234, 252, 0.8)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.section-title-container{
+  display: flex;
+  padding-left: 150px;
+}
+.about-text {
+  font-family: "PT Sans";
+  font-weight: 600;
+  font-size: 25px;
+  background: #abbaab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  width: 70%;
+  line-height: 40px;
+}
+
+#about-text-picture{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#ks-picture{
+  min-width: 250px;
+}
+
+@media (min-width: 320px) and (max-width: 580px) {
+  .title-word {
+    font-size: 60px;
+    margin: 0;
+    text-align: center;
+    height: 80px;
+  }
+
+  .landing-page {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .designation-box {
+    margin: 0;
+    height: 50px;
+    width: 60%;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 17px;
+  }
+
+  #messenger{
+    font-size: 17px;
+  }
+  
+  .section-title-container{
+    padding: 0;
+  }
+
+  .about-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-text{
+    font-size: 20px;
+    width: 88%;
+    line-height: 32px;
+  }
 }

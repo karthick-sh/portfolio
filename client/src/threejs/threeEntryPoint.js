@@ -18,6 +18,7 @@ export default container => {
         window.onresize = resizeCanvas;
         window.addEventListener("mousemove", onInputMove); //Also consider touch
         window.addEventListener("wheel", onScroll);
+        window.addEventListener("scroll", onScroll);
         //window.onmousemove = mouseMove;
         resizeCanvas();	
     }
@@ -54,7 +55,7 @@ export default container => {
     }
 
     function onScroll(e){
-        console.log("SCREEN Y: ", e.screenY);
-        console.log("PAGE Y: ", e.pageY);
+        var about_page_offsets = document.getElementById('about-container').getBoundingClientRect();
+        sceneManager.onScroll(about_page_offsets.top);
     }
 }

@@ -1,15 +1,15 @@
 import * as THREE from 'three'
-import palleteImage from '../textures/pallete_bw.png';
+import palleteImage from '../textures/pallete_bw_invert.png';
 
 export default scene => {    
-    const geometry = new THREE.PlaneBufferGeometry(100, 400, 400, 400);
+    const geometry = new THREE.PlaneBufferGeometry(100, 600, 400, 400);//param 1 was 100
 
     const uniforms = {
       time: { type: "f", value: 0.0 },
-      distortCenter: { type: "f", value: 0.1 },
-      roadWidth: { type: "f", value: 0.5 },
+      distortCenter: { type: "f", value: 0.01 },
+      roadWidth: { type: "f", value: 1 },
       pallete:{ type: "t", value: null},
-      speed: { type: "f", value: 1 },
+      speed: { type: "f", value: 0.75 },
       maxHeight: { type: "f", value: 10.0 },
       color:new THREE.Color(1, 1, 1)
     }
@@ -41,11 +41,49 @@ export default scene => {
         scene.mouse.yDamped = lerp(scene.mouse.yDamped, scene.mouse.y, 0.1);
 
         var time = performance.now() * 0.001
-        
+
+        var max_height;
+        // console.log(scene.scroll_offset);
+        if(scene.scroll_offset === undefined){
+          max_height = scene.height;
+        }
+        else{
+          max_height = scene.scroll_offset - 200;
+        }
+
+        if (scene.scroll_offset === undefined && scene.mouse.y === 0){
+          scene.mouse.y = scene.height/2;
+          scene.mouse.yDamped = scene.height/2;
+        }
+
+        if(max_height < 0){
+          max_height = 0;
+        }
+
+        max_height = scene.height; //delete this line!
+
         terrain.material.uniforms.time.value = time;
-        terrain.material.uniforms.distortCenter.value = Math.sin(time) * 0.1;
-        terrain.material.uniforms.maxHeight.value = map(scene.mouse.yDamped, 0, scene.height, 20, 5);
+
+        terrain.material.uniforms.distortCenter.value = Math.sin(time) * 0.01;
+
+        //Modify this for height
+        terrain.material.uniforms.maxHeight.value = map(scene.mouse.yDamped, 0, max_height, 20, 5);
+
+        let mod_scroll_offset = scene.scroll_offset;
+        let road_width_start = 1;
+        if (scene.scroll_offset !== undefined){
+          // terrain.position.y = 0.15*(scene.height - scene.scroll_offset);
+          
+          terrain.material.uniforms.roadWidth.value = road_width_start + (1 - mod_scroll_offset/scene.height)*15;
+        }
     }   
+
+    function relu(val){
+      if(val < 0){
+        return 0;
+      }
+      return val;
+    }
 
     function lerp (start, end, amt){
         return (1 - amt) * start + amt * end

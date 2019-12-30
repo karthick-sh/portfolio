@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
-
-import threeEntryPoint from "./threejs/threeEntryPoint"
-import Title from './Title'
+import Name from './Name'
 
 class HomePage extends Component {
     
     componentDidMount() {
         //console.log("THE ROOT ELEMENT IS: ", this.threeRootElement);
-        threeEntryPoint(this.threeRootElement);
+        console.log("HOME PAGE");
     }
 
     render () {
         return (
-            <div className="terrain-background" ref={element => this.threeRootElement = element}>
             	<div className='content-container'>
-					<Title className="title"/>
+					<Name className="name-title"/>
 				</div>
-			</div>
         );
     }
 }

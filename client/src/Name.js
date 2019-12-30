@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ListRevealer from './ListRevealer';
 
 
-class Title extends Component {
+class Name extends Component {
     
     componentDidMount() {
         
@@ -10,15 +10,16 @@ class Title extends Component {
 
     render () {
     	var reveal_list = [
-		      'hacker.',
-		      'software developer.',
+			  'researcher',
+			  'software developer.',
+			  'hacker.',
 		      'graphic designer.',
 		      'technology enthusiast.'
 		    ];
         return (
         	<div className='landing-page'>
-        			<div className="title-box"><h1 className="title-word" id="fname">Karthick</h1></div>
-        			<div className="title-box"><h1 className="title-word" id="lname">Shankar</h1></div>
+        			<h1 className="title-word" id="fname">Karthick</h1>
+        			<h1 className="title-word" id="lname">Shankar</h1>
         			<div className="designation-box"><h2>is a </h2><ListRevealer reveal_list={reveal_list} /></div>
            	</div>
         );
@@ -26,4 +27,4 @@ class Title extends Component {
     }
 }
 
-export default Title;
+export default Name;

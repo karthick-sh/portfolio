@@ -7,11 +7,15 @@ import * as serviceWorker from './serviceWorker';
 //Containers
 import HomePage from './HomePage'
 import AboutPage from './AboutPage'
+import Background from './Background'
 
 
 ReactDOM.render(
 	<div className='container'>
-		<HomePage />
+		<div className='home-page'>
+			<Background />
+			<HomePage />
+		</div>
 		<AboutPage />
 	</div>
 , document.getElementById('root'));

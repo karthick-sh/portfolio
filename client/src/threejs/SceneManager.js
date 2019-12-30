@@ -137,6 +137,10 @@ export default canvas => {
         renderer.setSize(width, height);
     }
 
+    function onScroll(top_offset){
+        scene.scroll_offset = top_offset;
+    }
+
     function onMouseMove(x, y) {
         //console.log(x, y);
         // if (x < -360){
@@ -167,6 +171,7 @@ export default canvas => {
     return {
         update,
         onWindowResize,
-        onMouseMove
+        onMouseMove,
+        onScroll
     }
 }
