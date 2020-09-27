@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import SceneSubject from './SceneSubject';
-import * as Sky from './threeSky';
 
 export default canvas => {
 
@@ -27,45 +26,6 @@ export default canvas => {
         scene.width = screenDimensions.width;
         scene.height = screenDimensions.height;
 
-        const fogColor = new THREE.Color( 0x000000 );
-        scene.background = fogColor
-
-        scene.fog = new THREE.Fog(fogColor, 10, 400);
-
-        // SKY SECTION
-        
-        const sky = new Sky();
-        sky.scale.setScalar( 450000 );
-        sky.material.uniforms.turbidity.value = 1;
-        sky.material.uniforms.rayleigh.value = 0.01;
-        sky.material.uniforms.luminance.value = 1;
-        sky.material.uniforms.mieCoefficient.value = 0.0003;
-        sky.material.uniforms.mieDirectionalG.value = 0.99995;
-        
-        scene.add( sky );
-
-        // SUN HELPER
-        const sunSphere = new THREE.Mesh(
-          new THREE.SphereBufferGeometry( 20000, 16, 8 ),
-          new THREE.MeshBasicMaterial( { color: 0xffffff } )
-        );
-        sunSphere.visible = false;
-
-        scene.add( sunSphere );
-        
-        const theta = Math.PI * ( -0.03 );
-        const phi = 2 * Math.PI * ( -.25 );
-
-        sunSphere.position.x = 400000 * Math.cos( phi );
-        sunSphere.position.y = 400000 * Math.sin( phi ) * Math.sin( theta );
-        sunSphere.position.z = 400000 * Math.sin( phi ) * Math.cos( theta );
-        
-        sky.material.uniforms.sunPosition.value.copy( sunSphere.position );
-
-        // AMBIENT LIGHT
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-        scene.add(ambientLight)
-
         return scene;
     }
 
@@ -78,9 +38,6 @@ export default canvas => {
         renderer.setPixelRatio(DPR);
         renderer.setSize(width, height);
 
-        // renderer.gammaInput = true;
-        // renderer.gammaOutput = true; 
-
         return renderer;
     }
 
@@ -91,8 +48,7 @@ export default canvas => {
         const farPlane = 10000; 
         const camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
 
-        camera.position.y = 8;
-        camera.position.z = 4;
+        camera.position.z = 10;
 
         return camera;
     }

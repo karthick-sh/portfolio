@@ -16,10 +16,6 @@ export default container => {
 
     function bindEventListeners() {
         window.onresize = resizeCanvas;
-        window.addEventListener("mousemove", onInputMove); //Also consider touch
-        window.addEventListener("wheel", onScroll);
-        window.addEventListener("scroll", onScroll);
-        //window.onmousemove = mouseMove;
         resizeCanvas();	
     }
 
@@ -33,29 +29,8 @@ export default container => {
         sceneManager.onWindowResize()
     }
 
-    function onInputMove(e){
-        e.preventDefault();
-        var x, y
-        if(e.type === "mousemove"){
-          x = e.clientX;
-          y = e.clientY;
-        }else{
-          x = e.changedTouches[0].clientX
-          y = e.changedTouches[0].clientY
-        }
-        
-        sceneManager.onMouseMove(x, y);
-        //console.log(x, y);
-        
-      }
-
     function render(time) {
         requestAnimationFrame(render);
         sceneManager.update();
-    }
-
-    function onScroll(e){
-        var about_page_offsets = document.getElementById('about-container').getBoundingClientRect();
-        sceneManager.onScroll(about_page_offsets.top);
     }
 }
