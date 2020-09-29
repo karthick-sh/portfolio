@@ -96,7 +96,7 @@ class ListRevealer extends Component {
 
     render () {
     	return (
-    		<h2 id="messenger">_</h2>
+    		<h2 id="messenger" className="home__messenger">_</h2>
     	);
     }
 }

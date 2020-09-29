@@ -10,7 +10,7 @@ export default container => {
     function createCanvas(document, container) {
         const canvas = document.createElement('canvas');  
         canvas.setAttribute("id", "canvas");
-        container.insertBefore(canvas, container.firstChild);
+        container.current.insertBefore(canvas, container.firstChild);
         return canvas;
     }
 
@@ -19,7 +19,7 @@ export default container => {
         resizeCanvas();	
     }
 
-    function resizeCanvas() {        
+    function resizeCanvas() {
         canvas.style.width = '100%';
         canvas.style.height= '100%';
         

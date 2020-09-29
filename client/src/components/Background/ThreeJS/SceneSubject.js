@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import palleteImage from '../textures/pallete_grey.png';
 
 export default scene => {    
-    const geometry = new THREE.PlaneBufferGeometry(100, 150, 400, 400);//param 1 was 100
+    const geometry = new THREE.PlaneBufferGeometry(100, 150, 400, 400);
 
     const uniforms = {
       time: { type: "f", value: 0.0 },
@@ -28,7 +28,12 @@ export default scene => {
 
     scene.add(terrain)
 
-    // PALLETE
+    // Error with ThreeJS for iOS.
+    // Hack solution (https://gitmemory.com/issue/mrdoob/three.js/15885/469050803)
+    window.ImageBitmap = window.ImageBitmap || function () { return null }
+
+
+    // Load the custom texture
     new THREE.TextureLoader().load( palleteImage, function(texture){
       terrain.material.uniforms.pallete.value = texture;
       terrain.material.needsUpdate = true;
@@ -36,16 +41,10 @@ export default scene => {
 
 
     function update() {
-        // damping mouse for smoother interaction
-        scene.mouse.xDamped = 0;
-        scene.mouse.yDamped = 0;
-
         var time = performance.now() * 0.001
 
         terrain.material.uniforms.time.value = time;
         terrain.material.uniforms.distortCenter.value = map(0, 0, scene.width, -0.1, 0.1);
-
-        //Modify this for height
         terrain.material.uniforms.roadWidth.value = map(0, 0, scene.height, -0.5, 2.5);
     }   
 

@@ -1,0 +1,32 @@
+@font-face {
+  font-family: Birch;
+  src: url(../../fonts/BirchStd.otf);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: gray;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+html, body, #root{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  /* filter: invert(100%); */
+}
+
+canvas {
+  z-index: 0;
+  position: absolute;
+}
