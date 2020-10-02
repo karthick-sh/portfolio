@@ -1,0 +1,56 @@
+.iconlink__icon {
+    margin: 5px 20px;
+    color: black;
+    transition: all 0.5s ease;
+    stroke:  #940f08;
+    stroke-width: 0px;
+}
+
+.iconlink__icon:hover {
+    stroke-width: 2%;
+    color: white;
+    cursor: pointer;
+}
+
+.iconlink__link {
+    text-decoration: none;
+}
+
+.iconlink__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* No tooltips yet */
+
+/*
+.iconlink__tooltiptext {
+    display: none;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 50;
+}
+
+.iconlink__icon:hover .iconlink__tooltiptext {
+    display: block;
+}
+
+.iconlink__tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+*/

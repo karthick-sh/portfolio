@@ -23,23 +23,10 @@
 
 #messenger {
     margin-left: 5px;
+    white-space: nowrap;
 }
 
 .home__contactlist {
     margin-top: 20px;
-}
-
-.home__contactlist a {
-    text-decoration: none;
-}
-
-.home__contact_icon {
-    margin: 5px 20px;
-    color: black;
-    transition: color 0.5s ease;
-}
-
-.home__contact_icon:hover {
-    color: #940f08;
-    cursor: pointer;
+    display: flex;
 }

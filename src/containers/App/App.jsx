@@ -1,6 +1,7 @@
 import React from 'react';
 import Background from 'components/Background/Background';
 import HomePage from 'containers/HomePage/HomePage';
+// import AboutPage from 'containers/AboutPage/AboutPage';
 
 import './App.css';
 
