@@ -3,7 +3,7 @@ import Name from 'components/Name/Name'
 import ListRevealer from 'components/ListRevealer/ListRevealer';
 
 import resume from 'assets/files/karthick_shankar_resume.pdf';
-import { REVEAL_LIST } from './contstants';
+import { REVEAL_LIST } from './constants';
 
 import './HomePage.css'
 import IconLinkWithHover from 'components/IconLinkWithHover/IconLinkWithHover';
