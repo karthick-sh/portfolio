@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 
 class ListRevealer extends Component {
 	componentDidMount() {
@@ -35,7 +34,7 @@ class ListRevealer extends Component {
 		      }
 		      
 		      var message = m.generateRandomString(m.current_length);
-		      $(el).html(message);
+		      el.innerHTML = message;
 		      
 		      setTimeout(m.animateIn, 20);
 		    } else { 
@@ -65,7 +64,7 @@ class ListRevealer extends Component {
 		      }
 		    }
 		    
-		    $(el).html(message);
+		    el.innerHTML = message;
 		    
 		    if(do_cycles === true){
 		      setTimeout(m.animateFadeBuffer, 50);
@@ -82,7 +81,7 @@ class ListRevealer extends Component {
 		    
 		    m.current_length = 0;
 		    m.fadeBuffer = false;
-		    $(el).html('');
+		    el.innerHTML = '';
 		    
 		    setTimeout(m.animateIn, 200);
 		  };
@@ -90,7 +89,7 @@ class ListRevealer extends Component {
 		  m.init();
 		}
 
-		new Messenger($('#messenger'));
+		new Messenger(document.getElementById('messenger'));
         
     }
 

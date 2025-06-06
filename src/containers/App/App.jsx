@@ -1,20 +1,35 @@
-import React from 'react';
-import Background from 'components/Background/Background';
-import HomePage from 'containers/HomePage/HomePage';
-// import AboutPage from 'containers/AboutPage/AboutPage';
+import React, { useState } from 'react';
+import Background from '../../components/Background/Background';
+import HomePage from '../HomePage/HomePage';
+import AboutPage from '../AboutPage/AboutPage';
+import ResearchPage from '../ResearchPage/ResearchPage';
+import WorkPage from '../WorkPage/WorkPage';
+import ProjectsPage from '../ProjectsPage/ProjectsPage';
+import Navbar from '../../components/Navbar/Navbar';
 
 import './App.css';
 
+const PAGE_COMPONENTS = {
+  home: HomePage,
+  about: AboutPage,
+  research: ResearchPage,
+  work: WorkPage,
+  projects: ProjectsPage,
+};
+
 const App = () => {
-  return (  
+  const [activePage, setActivePage] = useState('home');
+  const PageComponent = PAGE_COMPONENTS[activePage];
+
+  return (
     <div className='container'>
       <Background />
-      <HomePage />
-      {/* <AboutPage /> */}
+      <Navbar activePage={activePage} onNav={setActivePage} />
+      <PageComponent />
     </div>
-  )
+  );
 }
- 
+
 // class App extends Component {
 //   // Initialize state 
 //   state = { words: "WORD", snake_pos_x: 0, snake_pos_y: 0 }

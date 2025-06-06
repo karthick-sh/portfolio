@@ -1,12 +1,12 @@
 import React from 'react';
-import Name from 'components/Name/Name'
-import ListRevealer from 'components/ListRevealer/ListRevealer';
+import Name from '../../components/Name/Name'
+import ListRevealer from '../../components/ListRevealer/ListRevealer';
 
-import resume from 'assets/files/karthick_shankar_resume.pdf';
+import resume from '../../assets/files/karthick_shankar_resume.pdf';
 import { REVEAL_LIST } from './constants';
 
 import './HomePage.css'
-import IconLinkWithHover from 'components/IconLinkWithHover/IconLinkWithHover';
+import IconLinkWithHover from '../../components/IconLinkWithHover/IconLinkWithHover';
 
 const HomePage = () => {
     return (

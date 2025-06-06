@@ -47,7 +47,7 @@ export default canvas => {
 
     function createSceneSubjects(scene) {
         const sceneSubjects = [
-            new SceneSubject(scene)
+            SceneSubject(scene)
         ];
 
         return sceneSubjects;

@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import palleteImage from '../textures/pallete_grey.png';
 
 export default scene => {    
-    const geometry = new THREE.PlaneBufferGeometry(100, 150, 400, 400);
+    const geometry = new THREE.PlaneGeometry(100, 150, 400, 400);
 
     const uniforms = {
       time: { type: "f", value: 0.0 },

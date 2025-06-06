@@ -1,7 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './containers/App/App';
-import AboutPage from 'containers/AboutPage/AboutPage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
@@ -11,11 +10,11 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faGithub, faFileAlt, faLinkedin, faEnvelopeOpen)
 
-render((
+const root = createRoot(document.getElementById('root'));
+root.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<App />} />
-            <Route path="test" element={<AboutPage />} />
         </Routes>
     </BrowserRouter>
-), document.getElementById('root'));
+);

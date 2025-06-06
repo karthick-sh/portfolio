@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
 
 .home__container {
     height: 100%;
@@ -16,14 +17,15 @@
 
 .home__messenger {
     margin: 0;
-    font-family: "Barlow";
-    font-weight: 100;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
     font-size: 25px;
 }
 
 #messenger {
     margin-left: 5px;
     white-space: nowrap;
+    font-family: 'Karla', sans-serif;
 }
 
 .home__contactlist {
