@@ -2,8 +2,10 @@
   "name": "karthickshankar.com",
   "version": "0.5.0",
   "private": true,
+  "type": "module",
   "volta": {
-    "node": "23"
+    "node": "20.18.1",
+    "npm": "10.8.2"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -20,12 +22,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
+    "@netlify/vite-plugin": "^2.2.2",
     "vite": "^5.4.8"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf node_modules && rm -rf .vite && rm -rf .vite-cache && rm -rf dist"
   },
   "eslintConfig": {
     "extends": "react-app"
