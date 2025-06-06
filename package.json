@@ -23,13 +23,15 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
     "@netlify/vite-plugin": "^2.2.2",
-    "vite": "^5.4.8"
+    "vite": "^5.4.8",
+    "netlify-cli": "^18.1.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "clean": "rm -rf node_modules && rm -rf .vite && rm -rf .vite-cache && rm -rf dist"
+    "clean": "rm -rf node_modules && rm -rf dist",
+    "deploy:prod": "netlify deploy --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
