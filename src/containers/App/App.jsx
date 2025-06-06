@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Background from '../../components/Background/Background';
 import HomePage from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
@@ -9,64 +10,46 @@ import Navbar from '../../components/Navbar/Navbar';
 
 import './App.css';
 
-const PAGE_COMPONENTS = {
-  home: HomePage,
-  about: AboutPage,
-  research: ResearchPage,
-  work: WorkPage,
-  projects: ProjectsPage,
-};
+const NAV_LINKS = [
+  { label: 'home', key: 'home', path: '/' },
+  { label: 'work', key: 'work', path: '/work' },
+  { label: 'research', key: 'research', path: '/research' },
+  { label: 'projects', key: 'projects', path: '/projects' },
+  { label: 'about', key: 'about', path: '/about' },
+];
 
-const App = () => {
-  const [activePage, setActivePage] = useState('home');
-  const PageComponent = PAGE_COMPONENTS[activePage];
+const AppContent = () => {
+  const location = useLocation();
+  
+  // Determine active page based on current route
+  const getActivePageFromPath = (pathname) => {
+    const navLink = NAV_LINKS.find(link => link.path === pathname);
+    return navLink ? navLink.key : 'home';
+  };
+  
+  const activePage = getActivePageFromPath(location.pathname);
 
   return (
     <div className='container'>
       <Background />
-      <Navbar activePage={activePage} onNav={setActivePage} />
-      <PageComponent />
+      <Navbar navItems={NAV_LINKS} activePage={activePage} />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
     </div>
   );
+};
+
+const App = () => {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
 }
-
-// class App extends Component {
-//   // Initialize state 
-//   state = { words: "WORD", snake_pos_x: 0, snake_pos_y: 0 }
-
-//   // Fetch passwords after first mount
-//   componentDidMount() {
-//     this.getWords();
-//   }
-
-//   getWords() {
-//     fetch('/hello')
-//       .then((responseText) => responseText.json())
-//       .then((response) => this.setState({words: response.thing}));
-//   }
-
-//   render() {
-//     console.log(this.state.words)
-//     //WORKS!!
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React with {this.state.words}
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
 
 export default App;

@@ -1,0 +1,14 @@
+.listRevealer__container {
+    display: flex;
+    align-items: center;
+}
+
+#messenger {
+    margin-left: 5px;
+    white-space: nowrap;
+    font-family: 'Karla', sans-serif;
+}
+
+.listRevealer__icon {
+    vertical-align: middle;
+}

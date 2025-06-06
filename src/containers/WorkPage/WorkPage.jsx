@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './WorkPage.css';
 const WorkPage = () => (
   <div className="work__container">
     <h2>Work Experience</h2>

@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   background: transparent;
-  position: relative;
+  position: absolute;
   z-index: 10;
 }
 

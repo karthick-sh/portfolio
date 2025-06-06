@@ -6,7 +6,7 @@ import './AboutPage.css'
 const AboutPage = () => {
     return (
         <div className="about__container">
-            
+            asdasdla
         </div>
     )
 }

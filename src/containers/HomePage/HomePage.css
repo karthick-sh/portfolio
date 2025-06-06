@@ -22,12 +22,6 @@
     font-size: 25px;
 }
 
-#messenger {
-    margin-left: 5px;
-    white-space: nowrap;
-    font-family: 'Karla', sans-serif;
-}
-
 .home__contactlist {
     margin-top: 20px;
     display: flex;

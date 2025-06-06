@@ -1,16 +1,10 @@
 import React, { useRef, useLayoutEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
-const NAV_LINKS = [
-  { label: 'Home', key: 'home' },
-  { label: 'About', key: 'about' },
-  { label: 'Research', key: 'research' },
-  { label: 'Work', key: 'work' },
-  { label: 'Projects', key: 'projects' },
-];
-
-const Navbar = ({ activePage, onNav }) => {
+const Navbar = ({ navItems, activePage }) => {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const itemRefs = useRef({});
   const [pillX, setPillX] = useState(0);
@@ -18,6 +12,11 @@ const Navbar = ({ activePage, onNav }) => {
   const [pillWidth, setPillWidth] = useState(0);
   const [pillHeight, setPillHeight] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
+
+  // Handle navigation when navbar item is clicked
+  const handleNavClick = (navItem) => {
+    navigate(navItem.path);
+  };
 
   useLayoutEffect(() => {
     const activeRef = itemRefs.current[activePage];
@@ -70,12 +69,12 @@ const Navbar = ({ activePage, onNav }) => {
             }}
           />
         )}
-        {NAV_LINKS.map(link => (
+        {navItems.map(link => (
           <li
             key={link.key}
             ref={el => (itemRefs.current[link.key] = el)}
             className={`navbar__item${activePage === link.key ? ' navbar__item--active' : ''}`}
-            onClick={() => onNav(link.key)}
+            onClick={() => handleNavClick(link)}
             style={{ position: 'relative', zIndex: 1 }}
           >
             {link.label}
