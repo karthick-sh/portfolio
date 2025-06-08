@@ -4,18 +4,16 @@ import Background from '../../components/Background/Background';
 import HomePage from '../HomePage/HomePage';
 import AboutPage from '../AboutPage/AboutPage';
 import ResearchPage from '../ResearchPage/ResearchPage';
-import WorkPage from '../WorkPage/WorkPage';
 import ProjectsPage from '../ProjectsPage/ProjectsPage';
 import Navbar from '../../components/Navbar/Navbar';
 
 import './App.css';
 
 const NAV_LINKS = [
-  { label: 'home', key: 'home', path: '/' },
-  { label: 'work', key: 'work', path: '/work' },
-  { label: 'research', key: 'research', path: '/research' },
-  { label: 'projects', key: 'projects', path: '/projects' },
-  { label: 'about', key: 'about', path: '/about' },
+  { label: 'home', key: 'home', path: '/', component: HomePage },
+  { label: 'research', key: 'research', path: '/research', component: ResearchPage },
+  { label: 'projects', key: 'projects', path: '/projects', component: ProjectsPage },
+  { label: 'about', key: 'about', path: '/about', component: AboutPage },
 ];
 
 const AppContent = () => {
@@ -34,11 +32,9 @@ const AppContent = () => {
       <Background />
       <Navbar navItems={NAV_LINKS} activePage={activePage} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/work" element={<WorkPage />} />
-        <Route path="/research" element={<ResearchPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        {NAV_LINKS.map((link) => (
+          <Route key={link.key} path={link.path} element={<link.component />} />
+        ))}
       </Routes>
     </div>
   );

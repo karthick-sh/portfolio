@@ -1,6 +1,6 @@
 export const REVEAL_LIST = [
     {
-        text: 'a software developer at Salesforce',
+        text: 'a senior software developer at Salesforce',
         icon: {
             name: 'salesforce',
             style: 'fab'

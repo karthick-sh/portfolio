@@ -7,14 +7,22 @@
   background: transparent;
   position: absolute;
   z-index: 10;
+  padding: 1rem;
 }
 
 .navbar__list {
   display: flex;
   gap: 2rem;
   list-style: none;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   margin: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  background-color: rgba(130, 130, 130, 0.25);
+  opacity: 1;
 }
 
 .navbar__item {
